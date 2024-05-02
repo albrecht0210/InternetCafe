@@ -1,0 +1,5 @@
+DJANGO_SECRET_KEY=django-insecure-%sseow37scn%o8v7^47bs6+ho^atgxdyt9%tqrxt)bp_czdebp
+
+DATABASE_NAME=internet_cafe
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=
