@@ -45,7 +45,7 @@ Account
 Computer
 - string (uuid) | Id (PK)
 - string        | Name
-- int           | Status (1=Available, 2=In Use, 3=Maintenance)
+- int           | Status (1=Available, 2=Pending, 3=In Use, 4=Maintenance)
 - datetime      | Created At
 ```
 
@@ -76,11 +76,11 @@ Authorization | Action | Url
 ### Authentication
 
 ```
-User | POST | http://localhost:8000/api/token/
+Any  | POST | http://localhost:8000/api/token/
 User | POST | http://localhost:8000/api/token/refresh/
 User | POST | http://localhost:8000/api/token/verify/
 ```
-
+ 
 ### Account
 
 ```
@@ -93,7 +93,7 @@ Admin | GET,PUT,DELETE | http://localhost:8000/api/accounts/{id}/
 ### Computer
 ```
 Admin | GET,POST       | http://localhost:8000/api/computers/
-Admin | GET            | http://localhost:8000/api/computers/{available|in_use|maintenance}/
+Admin | GET            | http://localhost:8000/api/computers/{available|pending|in_use|maintenance}/
 Admin | PUT            | http://localhost:8000/api/computers/update_status/
 Admin | GET,PUT,DELETE | http://localhost:8000/api/computers/{id}/
 ```
@@ -106,6 +106,7 @@ Any   | GET            | http://localhost:8000/api/queues/now_serving/
 User  | GET            | http://localhost:8000/api/queues/get_queue_number/
 User  | POST           | http://localhost:8000/api/queues/queue_computer/
 User  | POST           | http://localhost:8000/api/queues/dequeue_computer/
+Admin | POST           | http://localhost:8000/api/queues/next_queue/
 Admin | GET,DELETE     | http://localhost:8000/api/queues/{id}/
 ```
 
@@ -114,5 +115,7 @@ Admin | GET,DELETE     | http://localhost:8000/api/queues/{id}/
 Admin | GET            | http://localhost:8000/api/sessions/
 User  | GET            | http://localhost:8000/api/sessions/my_session/
 User  | GET            | http://localhost:8000/api/sessions/my_all_session/
+User  | POST           | http://localhost:8000/api/sessions/create_session/
+User  | PUT            | http://localhost:8000/api/sessions/{id}/end_session/
 Admin | GET,DELETE     | http://localhost:8000/api/sessions/{id}/
 ```
