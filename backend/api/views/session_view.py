@@ -62,7 +62,7 @@ class SessionViewSet(mixins.ListModelMixin,
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
         
-    @action(methods=['get'], detail=None)
+    @action(methods=['get'], detail=False)
     def my_session(self, request, *args, **kwargs):
         user = self.request.user.id
         try:
