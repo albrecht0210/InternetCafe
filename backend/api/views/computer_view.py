@@ -33,20 +33,14 @@ class ComputerViewSet(mixins.ListModelMixin,
 
     #Admin
     @action(methods=['get'], detail=False)
-    def pending(self, request, *args, **kwargs):
+    def in_use(self, request, *args, **kwargs):
         queryset = self.queryset.filter(status=2)
         return self._get_computer(queryset=queryset)
 
     #Admin
     @action(methods=['get'], detail=False)
-    def in_use(self, request, *args, **kwargs):
-        queryset = self.queryset.filter(status=3)
-        return self._get_computer(queryset=queryset)
-
-    #Admin
-    @action(methods=['get'], detail=False)
     def maintenance(self, request, *args, **kwargs):
-        queryset = self.queryset.filter(status=4)
+        queryset = self.queryset.filter(status=3)
         return self._get_computer(queryset=queryset)
 
     #Admin

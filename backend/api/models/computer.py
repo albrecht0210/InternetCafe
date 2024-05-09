@@ -9,7 +9,6 @@ class Computer(models.Model):
 
     STATUS_CHOICES = (
         (1, 'Available'),
-        (2, 'Pending'),
         (3, 'In Use'),
         (4, 'Maintenance')
     )

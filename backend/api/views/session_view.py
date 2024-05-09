@@ -43,7 +43,7 @@ class SessionViewSet(mixins.ListModelMixin,
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            queue_entry.computer.status = 3
+            queue_entry.computer.status = 2
             queue_entry.computer.save(update_fields=['status'])
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
